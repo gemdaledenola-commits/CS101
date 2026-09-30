@@ -440,6 +440,42 @@ as.numeric(num_string)</code></pre>
 <pre><code>## [1] 123</code></pre>
 <pre class="r"><code>as.logical(num_string)</code></pre>
 <pre><code>## [1] NA</code></pre>
+<pre class="r"><code>as.logical(0)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>as.logical()</code></pre>
+<pre><code>## logical(0)</code></pre>
+<pre class="r"><code>bad_string &lt;- &quot;hello123&quot;</code></pre>
+<p>#Question 5</p>
+<pre class="r"><code># It issues a warning instead of crashing it because R allows data to process and to continue to run smoothly without encountering malformed values.
+
+# Ignoring these warnings can corrupt the value and caculations and results.</code></pre>
+<p>#Question 6</p>
+<pre class="r"><code># I think it will produce both TRUE value.
+
+as.logical(2)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>as.logical(-1)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># R only reads 0 as a FALSE number anything above and under is TRUE. </code></pre>
+<p>#Part D</p>
+<pre class="r"><code>first_name &lt;- &quot;Juan&quot;
+last_name &lt;- &quot;Dela Cruz&quot;
+print(first_name)</code></pre>
+<pre><code>## [1] &quot;Juan&quot;</code></pre>
+<pre class="r"><code>print(last_name)</code></pre>
+<pre><code>## [1] &quot;Dela Cruz&quot;</code></pre>
+<pre class="r"><code>first_name &lt;- &quot;Juan&quot;
+last_name &lt;- &quot;Dela Cruz&quot;
+paste(first_name, last_name)</code></pre>
+<pre><code>## [1] &quot;Juan Dela Cruz&quot;</code></pre>
+<pre class="r"><code>paste0(first_name, last_name)</code></pre>
+<pre><code>## [1] &quot;JuanDela Cruz&quot;</code></pre>
+<pre class="r"><code>paste(first_name, last_name, sep = &quot;-&quot;)</code></pre>
+<pre><code>## [1] &quot;Juan-Dela Cruz&quot;</code></pre>
+<pre class="r"><code>full_name &lt;- paste0(first_name, last_name, sep = &quot;-&quot;)
+age &lt;- 21
+paste0(full_name, &quot;is&quot;, age, &quot;years old.&quot;)</code></pre>
+<pre><code>## [1] &quot;JuanDela Cruz-is21years old.&quot;</code></pre>
 
 
 

@@ -30,13 +30,15 @@ a %/% b
 17%%5
 17%/%5
 
-# They relate each other in a way, that function differently. The divide algorithm counts the whole number including the decimal meanwhile the modulo, counts the remainder and for the mix divide and modulo it presents 3 because it computes it into a whole number rather than with a decimal or the remainder.
 ```
+# They relate each other in a way, that function differently. The divide algorithm counts the whole number including the decimal meanwhile the modulo, counts the remainder and for the mix divide and modulo it presents 3 because it computes it into a whole number rather than with a decimal or the remainder.
 
 ```{r}
-10%%3 # this calculates the Remainder. 1 is the remainder
-10%/%3 # this computes for the whole number. 3 is the result
+10%%3 
+10%/%3 
 ```
+# this calculates the Remainder. 1 is the remainder
+# this computes for the whole number. 3 is the result
 
 #Part B
 ```{r}
@@ -72,15 +74,17 @@ mode(v)
 ```{r}
 x <- 42
 y <- 42L
-# They are different because "x <- 42" automatically makes it a double type. Meanwhile y <- 42L reassigns the value to be integer.
+
 ```
+# They are different because "x <- 42" automatically makes it a double type. Meanwhile y <- 42L reassigns the value to be integer.
+
 #Question 4
-```{r}
+
 #typeof()
 #class()
 #mode()
 # Each has different functions and to identify an object. For instance "intege" for typeof() and "numeric for mode() and "factor class().
-```
+
 #Part C
 ```{r}
 num_string<- "123"
@@ -89,7 +93,76 @@ as.logical(num_string)
 ```
 
 ```{r}
-
+as.logical(0)
+as.logical()
 ```
+
+```{r}
+bad_string <- "hello123"
+```
+#Question 5
+
+# It issues a warning instead of crashing it because R allows data to process and to continue to run smoothly without encountering malformed values.
+
+# Ignoring these warnings can corrupt the value and caculations and results.
+
+#Question 6
+```{r}
+as.logical(2)
+as.logical(-1)
+```
+# I think it will produce both TRUE value.
+# R only reads 0 as a FALSE number anything above and under is TRUE. 
+
+#Part D
+```{r}
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+print(first_name)
+print(last_name)
+```
+
+```{r}
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+paste(first_name, last_name)
+paste0(first_name, last_name)
+```
+
+```{r}
+paste(first_name, last_name, sep = "-")
+```
+
+```{r}
+full_name <- paste0(first_name, last_name, sep = "-")
+age <- 21
+paste0(full_name, "is", age, "years old.")
+```
+#Question 7
+
+#They produce different result because paste() there's a space automatically meanwhile paste0() produces none
+
+#Question 8
+
+#It didn't produce an error. paste0() automatically runs the type into character inputs into strings.
+
+#Part E
+```{}
+"5" + 5 
+# non-numeric argument to binary operator
+```
+
+```{r}
+5 + 5 
+```
+
+Question 9
+
+# It runs with an error to ensure data isn't corrupted or unexpected results. This also protects data by not running it.
+
+
+Question 10
+
+# 
 
 
