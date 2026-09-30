@@ -24,7 +24,7 @@ a %/% b
 2^10
 ```
 
-#Question 1 
+Question #1 
 ```{r}
 17/5 
 17%%5
@@ -40,7 +40,7 @@ a %/% b
 # this calculates the Remainder. 1 is the remainder
 # this computes for the whole number. 3 is the result
 
-#Part B
+Part B
 ```{r}
 x <- 42 
 y <- 42L
@@ -70,7 +70,8 @@ mode(z)
 mode(w)
 mode(v)
 ```
-#Question 3
+
+Question #3
 ```{r}
 x <- 42
 y <- 42L
@@ -78,14 +79,14 @@ y <- 42L
 ```
 # They are different because "x <- 42" automatically makes it a double type. Meanwhile y <- 42L reassigns the value to be integer.
 
-#Question 4
+Question #4
 
-#typeof()
-#class()
-#mode()
+typeof()
+class()
+mode()
 # Each has different functions and to identify an object. For instance "intege" for typeof() and "numeric for mode() and "factor class().
 
-#Part C
+Part C
 ```{r}
 num_string<- "123"
 as.numeric(num_string)
@@ -100,21 +101,23 @@ as.logical()
 ```{r}
 bad_string <- "hello123"
 ```
-#Question 5
+
+Question 5
 
 # It issues a warning instead of crashing it because R allows data to process and to continue to run smoothly without encountering malformed values.
 
 # Ignoring these warnings can corrupt the value and caculations and results.
 
-#Question 6
+Question #6
 ```{r}
 as.logical(2)
 as.logical(-1)
 ```
+
 # I think it will produce both TRUE value.
 # R only reads 0 as a FALSE number anything above and under is TRUE. 
 
-#Part D
+Part D
 ```{r}
 first_name <- "Juan"
 last_name <- "Dela Cruz"
@@ -138,15 +141,16 @@ full_name <- paste0(first_name, last_name, sep = "-")
 age <- 21
 paste0(full_name, "is", age, "years old.")
 ```
-#Question 7
+
+Question #7
 
 #They produce different result because paste() there's a space automatically meanwhile paste0() produces none
 
-#Question 8
+Question #8
 
 #It didn't produce an error. paste0() automatically runs the type into character inputs into strings.
 
-#Part E
+Part E
 ```{}
 "5" + 5 
 # non-numeric argument to binary operator
@@ -156,13 +160,15 @@ paste0(full_name, "is", age, "years old.")
 5 + 5 
 ```
 
-Question 9
+Question #9
 
 # It runs with an error to ensure data isn't corrupted or unexpected results. This also protects data by not running it.
 
 
-Question 10
+Question #10
 
-# 
+# The column was imported as character or factor because it contained non-numeric text, which caused sum() to fail. To diagnose, run typeof() and class() to verify the type. To fix it, re-import the file using na.strings = "N/A" so R treats the non-numeric text as missing values, which automatically loads the column as numeric so sum() works directly.
 
+Conclusion
 
+# I've learned that there's different ways to get a value and to confirm what that value is. Understanding type(), class() is essential to identify because some mathematical functions only works on numeric data types, when R detects a character this would stop and produce an error since it cannot perform math functions on a text. 
