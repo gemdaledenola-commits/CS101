@@ -1,0 +1,95 @@
+---
+title: "RExercise#2_Denola"
+author: "Gem Dale G Deñola"
+date: "2026-09-30"
+output: html_document
+---
+
+```{r}
+a <- 17
+b <- 5
+
+a + b
+a - b
+a * b
+a / b
+```
+
+```{r}
+a %% b
+a %/% b
+```
+
+```{r}
+2^10
+```
+
+#Question 1 
+```{r}
+17/5 
+17%%5
+17%/%5
+
+# They relate each other in a way, that function differently. The divide algorithm counts the whole number including the decimal meanwhile the modulo, counts the remainder and for the mix divide and modulo it presents 3 because it computes it into a whole number rather than with a decimal or the remainder.
+```
+
+```{r}
+10%%3 # this calculates the Remainder. 1 is the remainder
+10%/%3 # this computes for the whole number. 3 is the result
+```
+
+#Part B
+```{r}
+x <- 42 
+y <- 42L
+z <- "42"
+w <- TRUE
+v <- 3 + 2i
+
+typeof(x)
+typeof(y)
+typeof(z)
+typeof(w)
+typeof(v)
+```
+#class
+```{r}
+class(x)
+class(y)
+class(z)
+class(w)
+class(y)
+```
+#mode
+```{r}
+mode(x)
+mode(y)
+mode(z)
+mode(w)
+mode(v)
+```
+#Question 3
+```{r}
+x <- 42
+y <- 42L
+# They are different because "x <- 42" automatically makes it a double type. Meanwhile y <- 42L reassigns the value to be integer.
+```
+#Question 4
+```{r}
+#typeof()
+#class()
+#mode()
+# Each has different functions and to identify an object. For instance "intege" for typeof() and "numeric for mode() and "factor class().
+```
+#Part C
+```{r}
+num_string<- "123"
+as.numeric(num_string)
+as.logical(num_string)
+```
+
+```{r}
+
+```
+
+
