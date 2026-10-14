@@ -1,0 +1,67 @@
+---
+title: "RExercise#3_Denola"
+author: "Gem Dale G Deñola"
+date: "2026-10-14"
+output: html_document
+---
+
+#Part A
+```{r}
+scores <- c(88, 92, 79, 95, 84)
+scores
+subjects <- c("Math", "Science", "English", "History", "PE")
+subjects
+```
+
+```{r}
+odds <- seq(from = 1, to = 19, by = 2)
+odds
+seq(from = 0, to = 1, length.out = 5)
+```
+
+```{r}
+rep("A", times = 4)
+rep(c("A", "B"), each = 2)
+rep(c("A", "B"), times = 2)
+```
+
+Question 1
+```{r}
+age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)
+age
+
+length(age) 
+1/age
+new_age <- c(age, 0, age)
+new_age
+
+min(age)
+max(age)
+```
+#c. new age creates a new vector,  this combines both age and the number 0 and the age again. in sum the size of new_age becomes double
+
+Question 2
+```{r}
+rep(c("A","B"), each = 2)
+```
+#each repeats each individual elements
+#times repeats the entire sequence
+
+Question 3
+```{r}
+seq(1, 20, by = 2)
+seq(1, 20, length.out = 5)
+```
+#by produces a space each unit apart. When doing intervals, like generating odd numbers
+#length.out specifies the total count of numbers. When endpoints are fixed
+
+Question 4
+```{r}
+vec_num <- seq(20, 60)
+vec_num
+
+mean(vec_num)
+
+length(vec_num)
+```
+
