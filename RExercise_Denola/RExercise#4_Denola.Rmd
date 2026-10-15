@@ -1,0 +1,84 @@
+---
+title: "RExercise#4_Denola"
+author: "Gem Dale G Deñola"
+date: "2026-10-15"
+output: html_document
+---
+
+Part A
+```{r}
+#A
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 
+         34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24,
+         33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18.)
+#B
+length(age) #50
+
+#C
+min(age) #17
+max(age) #61
+
+#D
+age[c(13:18, 33:35)]
+
+#E
+age[-c(10, 20, 30, 40)]
+
+#F
+age[c(4, 14, 24, 44)] <- 0
+```
+
+# Question 2
+```{r}
+data(rivers)
+river <- c(length = length(rivers), sum  = sum(rivers),
+           mean   = mean(rivers), median = median(rivers), 
+           var    = var(rivers), sd      = sd(rivers),
+           min    = min(rivers), max     = max(rivers))
+
+river 
+#Result
+##      length         sum        mean      median         var          sd 
+##    141.0000  83357.0000    591.1844    425.0000 243908.4086    493.8708 
+##         min         max 
+##    135.0000   3710.0000
+```
+
+# Question 3
+```{r}
+#A
+power_ranking <- 1:25
+
+celebrity <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos",
+          "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman",
+          "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant")
+
+celebrity
+
+pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+
+pay 
+
+#B
+
+power_ranking[19] <- 15
+pay[19] <- 90
+
+power_ranking[19]
+celebrity[19]
+pay[19]
+```
+
+# Question 4
+```{r}
+vegies <- list("corn", "cabbage", "eggplant", "pumpkin", "broccoli", "beans", "kalabasa", "potato", "ginger", "raddish")
+
+vegies <- append(vegies, list("Abelmoschus esculentus", "mushrooms")) # the results show 12 elements, with radish and cucumber being the final two.
+
+length(vegies) # 12
+
+vegies <- append(vegies, list("Chili", "sweet potato", "bell pepper", "celery"), after = 5) # printed out four new elements, after 5 element.
+
+length(vegies) # 16
+```
+
