@@ -1,0 +1,123 @@
+---
+title: "RExercise#5_Denola"
+author: "Gem Dale G Deñola"
+date: "2026-10-18"
+output: html_document
+---
+
+# Part A 
+```{r}
+m1 <- matrix(1:9, nrow = 3, ncol = 3)
+m1
+
+m2 <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
+m2
+
+scores <- matrix(c(88, 92, 79, 95, 84, 90), nrow = 2, ncol = 3, byrow = TRUE)
+rownames(scores) <- c("Quiz1", "Quiz2")
+colnames(scores) <- c("Ana", "Ben", "Cid")
+
+scores
+```
+# Q1
+# R fills matrices column by column by default. Setting byrow = TRUE fills the matrix row by row instead. This changes where the numbers are placed inside the grid without changing the matrix's shape or total size.
+
+# Q2
+```{r}
+matrix(1:8, nrow = 3, ncol = 3)
+```
+# R uses its recycling rule when a matrix has more slots ($3 \times 3 = 9$) than data elements ($8$). Instead of stopping, it goes back to the start of the sequence ($1$) to fill the final slot. R prints a warning because 8 is not a multiple of 3.
+
+
+# Part B 
+```{r}
+scores[1, 2]
+scores[1, ]
+scores[, "Ben"]
+
+scores[scores >= 90]
+```
+# Q3
+# Extracting a single row or column removes the need for a 2D grid structure, so R automatically converts (drops) the output into a 1D vector to simplify further calculations like mean() or sum(). To maintain the matrix format, add drop = FALSE (e.g., scores[1, , drop = FALSE]).
+```{r}
+class(scores[1, ])
+class(scores[, "Ben"])
+```
+
+# Q4
+# scores[1, ] selects an entire row, keeping its structural labels intact. In contrast, scores[scores >= 90] extracts scattered individual values (95, 92, 90) that do not form a complete grid, causing R to return them as an unnamed vector.
+
+
+# Part C 
+```{r}
+dim(scores)
+nrow(scores)
+ncol(scores)
+scores_t <- t(scores)
+scores_t
+dim(scores_t)
+
+a <- matrix(1:4, nrow = 2)
+b <- matrix(5:8, nrow = 2)
+a + b
+a * b
+
+a %*% b
+```
+#Q5
+#The element-wise multiplication, Multiplies numbers that occupy matching positions in each matrix ( top-left cell: 1 \times 5 = 5). Meanwhile Matrix Multiplication, Computes the dot product of rows from the first matrix and columns from the second ( top-left cell: 1 \times 5 + 3 \times 6 = 23).
+
+#Q6
+# Transposing swaps the rows and columns. Consequently, the original column names become the new row names, and the original row names become the new column names.
+
+
+# Part D 
+```{r}
+scores_v2 <- cbind(scores, Dex = c(85, 91))
+scores_v2
+
+scores_v3 <- rbind(scores, Quiz3 = c(80, 88, 93))
+scores_v3
+```
+# Q7
+# R gives a warning, cbind() and rbind() require matching dimensions to form a complete rectangular matrix. If the lengths do not match, R throws a warning and recycles or truncates data to force a fit, which can lead to incomplete or misaligned entries.
+
+#Q8
+# I would use rbind() when adding new observations (rows) that share the existing variables (adding a new day of sales to an existing daily sales table). Meanwhile for cbind () I would use it when adding new variables (columns) for the same observations (adding a new product column to the sales table).
+
+
+# Part E 
+```{r}
+arr <- array(1:12, dim = c(2, 3, 2))
+arr
+
+arr[1, 2, 2]
+arr[ , , 1]
+
+dim(arr)
+```
+# Q9
+# The output 2 3 2 indicates a 3D array with: [2 rows, 3 columns, 2 layers] (two stacked 2 * 3 matrices)Indexing requires three values, arr[row, column, layer]
+
+# Q10
+# A good example is tracking hospital patients' vital signs, where rows are hours of the day, columns are health metrics, and layers are individual patient beds. A 3D array keeps each patient's full daily record on a separate layer, allowing a doctor to isolate one patient's stats using arr[, , 1] or check heart rates across all beds at noon using arr[12, 1, ].
+
+
+# Part F 
+```{r}
+class_a <- matrix(c(85, 90, 78, 92), nrow = 2, byrow = TRUE, dimnames = list(c("S1", "S2"), c("Midterm", "Final")))
+class_b <- matrix(c(88, 84, 95, 91), nrow = 2, byrow = TRUE, dimnames = list(c("S3", "S4"), c("Midterm", "Final")))
+all_students <- rbind(class_a, class_b)
+all_students
+
+rowMeans(all_students)
+```
+# Q11
+# Both matrices share the same columns (Midterm and Final), but contain different rows (S1/S2 vs. S3/S4). Because they represent new student records for the same set of exams, stacking them as additional rows using rbind() is logical.
+
+# Q12
+# Stack all five matrices vertically using rbind(). To verify the result, run dim()—the column count must remain $2$ (Midterm and Final), and the row count must equal the total number of students combined across all five classes.
+
+
+# Conclusion
+# Both matrices and arrays strictly enforce a single data type across all elements, differing primarily in structure matrices stay strictly two-dimensional, meanwhile arrays can expand into three or more dimensions. Functions like rbind() and cbind() allow datasets to expand naturally by attaching new entries vertically or horizontally—such as keeping tabs on weekly student attendance. Because these operations require exact dimensional alignment, they protect the dataset's integrity by preventing structural offsets and unintended element recycling.
