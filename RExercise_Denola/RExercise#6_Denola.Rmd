@@ -1,0 +1,109 @@
+---
+title: "RExercise#6_Denola"
+author: "Gem Dale G Deñola"
+date: "2026-10-18"
+output: html_document
+---
+# Part A
+```{r}
+name   <- c("Ana", "Ben", "Cid", "Dex", "Eli")
+age    <- c(20, 21, 19, 22, 20)
+passed <- c(TRUE, TRUE, FALSE, TRUE, FALSE)
+
+students <- data.frame(name = name, age = age, passed = passed)
+students
+
+print(typeof(students$name))
+print(class(students$name))
+
+courses <- data.frame(course_code = c("IS101", "IS102", "IS103"), units = c(3, 3, 2), instructor  = c("Dr. P. Reyes", "Dr. R. Santos", "Dr. S. Cruz"))
+courses
+```
+# Question 1
+# All columns in a data frame are bound together by a shared row index, making equal length mandatory. If vector lengths were mismatched, the table would lose its rectangular shape, resulting in undefined or empty cells across shorter columns.
+
+# Question 2
+# Data frame is actually a list where each item is a column vector. Because lists can store different types of data, a data frame can hold numbers, text, and booleans all in the same table, as long as each single column stays consistent.
+
+
+# Part B
+```{r}
+students$age    
+students[["age"]]    
+students["age"]  
+
+students[2, ]
+
+students[3, "name"]
+
+students[students$passed == TRUE, ]
+
+students[students$passed == TRUE & students$age > 19, ]
+```
+# Question 3
+# Using single brackets students["age"] extracts a slice while keeping it packaged inside a data frame. Using the dollar sign students$age pulls out the raw numbers directly as a plain numeric vector.
+```{r}
+class(students$age)   
+class(students[["age"]])
+class(students["age"])
+```
+
+#Question 4
+# The & operator requires both conditions to be met at the same time to pick a row. Using | would pick a row if either condition were true, which would include older students who failed or younger students who passed
+
+#Part C
+```{r}
+str(students)
+
+dim(students)   
+nrow(students)  
+ncol(students) 
+
+names(students)
+
+summary(students)
+```
+# Question 5
+# For the numeric age column, summary() reports descriptive statistics like the minimum, maximum, mean, and quartiles. For the logical passed column, it counts the total TRUE and FALSE values. For the character name column, it only displays basic metadata like length and class since text cannot be calculated mathematically.
+
+#Question 6
+# The str() function is best for checking a data frame's structure, such as column data types, row counts, and variable names. In contrast, summary() is best for examining the actual data, showing value distributions, averages, and ranges across variables.
+
+
+# Part D
+```{r}
+students$year_level <- c(2, 3, 1, 4, 2)
+students
+
+students$passed <- NULL
+students
+
+students[order(students$age), ]
+
+students[order(students$age, decreasing = TRUE), ]
+```
+# Question 7
+# No, running students$passed == TRUE after deleting the column will fail because referencing a missing column returns NULL. Evaluating NULL against TRUE yields logical(0), causing the code to return an empty result or error out.
+
+#Question 8
+# order(students$age) generates a list of row position numbers ranked from youngest to oldest. Placing those position numbers into students[..., ] tells R to display the actual table rows in that newly ordered sequence.
+
+# Part E
+```{r}
+grades <- data.frame(name = c("Ana", "Ben", "Cid", "Dex", "Eli"), 
+                  midterm = c(85, 78, 92, 88, 70), 
+                  final   = c(90, 82, 95, 84, 75))
+
+grades$average <- (grades$midterm + grades$final) / 2
+grades
+
+grades$remarks <- ifelse(grades$average >= 75, "Passed", "Failed")
+grades[grades$remarks == "Failed", c("name", "average")]
+
+grades
+```
+# Question 9
+# You can track student progress by subtracting midterm marks from final marks (grades$final - grades$midterm) to spot who dropped points. Creating another column to flag low midterm scores (like anything below 75) allows you to sort the table and quickly identify students who need help.
+
+# Conclusion
+# A data frame acts as a 2D table made of equal-length column vectors grouped into a list structure. This allows different columns to store distinct data types while maintaining internal consistency within each column. By preserving row alignment and integrating cleanly with R's built-in tools, it remains the standard format for tabular data analysis.
