@@ -1,0 +1,108 @@
+---
+title: "RExercise#9_Denola"
+author: "Gem Dale G Deñola"
+date: "2026-11-4"
+output: html_document
+---
+
+Part A
+# A.
+```{r}
+shoes <-  data.frame(
+          ShoeSize = c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5,
+                      13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0),
+          Height   = c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.5, 67.0, 71.0, 71.0,
+                      77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0),
+          Gender   = c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M",
+                      "M", "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M")
+                    )
+write.csv(shoes, "shoesize.csv", row.names = FALSE )
+```
+
+# B.
+```{r}
+shoes <- read.csv("shoesize.csv")
+tail(shoes, 5)
+```
+
+# C.
+```{r}
+str(shoes)
+head(shoes)
+```
+
+# D
+```{r}
+dim(shoes)
+nrow(shoes)
+ncol(shoes)
+```
+#Theres 28 rows and 3 columns.
+
+# E.
+```{r}
+summary(shoes)
+```
+#summary() shows a complete summary of the data given. While str() displays the structure.
+
+# F.
+```{r}
+males   <- subset(shoes, Gender == "M", select = c(ShoeSize, Height))
+males
+females <- subset(shoes, Gender == "F", select = c(ShoeSize, Height))
+females
+```
+#It organizes them by gender.
+
+# G.
+```{r}
+mean(shoes$ShoeSize)
+mean(shoes$Height)
+```
+
+# H.
+#Yes, people that are tend to be taller have larger shoe size.
+
+# Question 2
+```{r}
+shoes$Gender <- factor(shoes$Gender)
+levels(shoes$Gender)
+str(shoes)
+```
+
+# Question 3
+#Shoesize.csv functions as long as the csv is in the same folder because the.Rmd file always searches for files associated with its own folder. The document is reproducible, because it produces the same outcome on any computer since the working directory is linked to the file itself.
+
+# Question 4
+```{r}
+str(shoes)
+```
+#alot will go wrong if Shoesize was accidentally imported as text. Math operations wouldn't work properly and mean(), sum(), cor() would return NA.
+
+
+# Question 5
+#Checking both head() (first 6 rows) and tail() (last 6 rows) ensures the entire file was read correctly from top to bottom.
+
+# Question 6
+# A.
+
+```{r}
+cor(shoes$ShoeSize, shoes$Height)
+```
+
+# B.
+```{r}
+shoes[shoes$ShoeSize >= 11, ]
+```
+
+# Question 7
+```{r}
+males   <- subset(shoes, Gender == "M")
+females <- subset(shoes, Gender == "F")
+
+mean(males$Height);   mean(females$Height)
+mean(males$ShoeSize); mean(females$ShoeSize)
+```
+#Males generally have both higher average heights and larger average shoe sizes compared to females.
+
+#Yes its important, Gender plays a big role here. The strong link between shoe size and height is mostly because males are generally taller and have larger feet than females.
