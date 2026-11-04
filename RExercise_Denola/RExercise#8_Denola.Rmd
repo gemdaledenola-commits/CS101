@@ -1,0 +1,118 @@
+---
+title: "RExercise#5_Denola"
+author: "Gem Dale G Deñola"
+date: "2026-11-4"
+output: html_document
+---
+
+Part A
+```{r}
+#a
+scores <- c(Ana = 78, Ben = 92, Cid = 85, Dex = 92, Eli = 67, Fay = 88, Gio = 74)
+scores
+
+#b
+sort_ascending <- sort(scores)
+sort_ascending #Ascends the lowest number to higher number
+
+sort_descending <- sort(scores, decreasing = TRUE)
+sort_descending #Descends the High number to low number
+
+
+#c
+sort_ascending
+
+#d
+subjects <- c("Science", "Math", "English", "Filipino", "PE") 
+incomplete <- c(85, NA, 90, 70, NA, 95)
+subjects
+incomplete
+
+#e
+sort(subjects)
+
+#f
+sort(incomplete) #It disregarded the NA and only printed the one with values.
+```
+
+# Question 2
+#Yes, They still hold the same orginal values either ascending or descending. If you're sorting the exam scores and the name did not follow their original value, The names that hold that original value would be given to the wrong person when matched. Example; If you try to find the top performer their scores, And the name didn't follow the same value it would simply match with the wrong student
+
+# Question 3
+#This default behavior could be dangerous when checking the values. If you reported the "lowest score" with a missing data, It would simply print the lowest score with nothing since it has a undetermined value. And if the lowest score wasn't check beforehand for any values, Then the summary of the report would be innaccurate.
+
+# Question 4
+```{r}
+order(scores)
+sort(scores)
+```
+#order() organizes them in by placement of their orginal placing via number and rearranges them to lowest to higest . Meanwhile sort() directly attains the value and organize them to lowest to highest.
+
+```{r}
+scores[order(scores)]
+```
+#Yes, they held the same values and names, its because order(scores) gives the position in a sorted order.
+
+# Question 5
+```{r}
+students <- data.frame(
+            name = c("Ana", "Ben", "Cid", "Dex", "Eli", "Fay", "Gio"),
+            score = c(78, 92, 85, 92, 67, 88, 74),
+            section = c("A", "B", "A", "B", "A", "B", "A")
+                      )
+students
+```
+#It organizes them in a column
+
+```{r}
+students[order(students$score), ]
+```
+#Organizes them by lowest to highest
+
+```{r}
+students[order(students$score, decreasing = TRUE), ]
+```
+#Organizes them by highest to lowest
+
+# Question 6
+```{r}
+order(scores)
+```
+#This doesnt return the initial value of the score it self, but by the placement or the position of those values. This is useless because it returns numbers by their position, which is useless when you want actual values.
+
+# Question 7
+#sort() can only arrange one vector and the data frame had multiples, It can't process those vector at once. Meanwhile order() can since it relies on placement of those values and organizes them by positions.
+
+# Question 8
+
+```{r}
+rank(scores)
+cbind(scores, rank = rank(scores))
+```
+# A.
+#Both of them got a rank of 6.5
+
+
+# B.
+#R cannot duplicate positions, so it just gave them both the average. And rank() uses a tie method, in order to get that average when both individuals are tied for first.
+
+# Question 8
+```{r}
+sales <-  data.frame(
+          employee   = c("Rey", "Sam", "Tin", "Uma", "Val"),
+          units_sold = c(120, 145, 145, 98, 130)
+                    )
+
+```
+
+```{r}
+sales$rank <- rank(-sales$units_sold)
+sales
+```
+
+```{r}
+sales[order(sales$units_sold, decreasing = TRUE), ]
+```
+
+# Question 9
+#Order() alone can't give the whole answer, since it works by positionings. order() works by placement or by the position of the values while rank() gives its initial value each, and when encountering a tie scenario. It can use the tie method that is built in with rank().
