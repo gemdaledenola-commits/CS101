@@ -11,9 +11,9 @@
 
 <meta name="author" content="Gem Dale G Deñola" />
 
-<meta name="date" content="2026-09-30" />
+<meta name="date" content="2026-11-08" />
 
-<title>RExercise#2_Denola</title>
+<title>RExercise#7_Denola</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,132 +350,259 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">RExercise#2_Denola</h1>
+<h1 class="title toc-ignore">RExercise#7_Denola</h1>
 <h4 class="author">Gem Dale G Deñola</h4>
-<h4 class="date">2026-09-30</h4>
+<h4 class="date">2026-11-08</h4>
 
 </div>
 
 
-<pre class="r"><code>a &lt;- 17
-b &lt;- 5
+<p>Part A</p>
+<div id="question-1" class="section level1">
+<h1>Question 1</h1>
+<pre class="r"><code>respondents &lt;- 1:20
+sex &lt;- c(2, 2, 1, 2, 2, 
+         2, 2, 2, 2, 2,
+         1, 2, 2, 2, 2, 
+         2, 2, 2, 1, 1)
 
-a + b</code></pre>
-<pre><code>## [1] 22</code></pre>
-<pre class="r"><code>a - b</code></pre>
-<pre><code>## [1] 12</code></pre>
-<pre class="r"><code>a * b</code></pre>
-<pre><code>## [1] 85</code></pre>
-<pre class="r"><code>a / b</code></pre>
-<pre><code>## [1] 3.4</code></pre>
-<pre class="r"><code>a %% b</code></pre>
-<pre><code>## [1] 2</code></pre>
-<pre class="r"><code>a %/% b</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>2^10</code></pre>
-<pre><code>## [1] 1024</code></pre>
-<p>#Question 1</p>
-<pre class="r"><code>17/5 </code></pre>
-<pre><code>## [1] 3.4</code></pre>
-<pre class="r"><code>17%%5</code></pre>
-<pre><code>## [1] 2</code></pre>
-<pre class="r"><code>17%/%5</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code># They relate each other in a way, that function differently. The divide algorithm counts the whole number including the decimal meanwhile the modulo, counts the remainder and for the mix divide and modulo it presents 3 because it computes it into a whole number rather than with a decimal or the remainder.</code></pre>
-<pre class="r"><code>10%%3 # this calculates the Remainder. 1 is the remainder</code></pre>
-<pre><code>## [1] 1</code></pre>
-<pre class="r"><code>10%/%3 # this computes for the whole number. 3 is the result</code></pre>
-<pre><code>## [1] 3</code></pre>
-<p>#Part B</p>
-<pre class="r"><code>x &lt;- 42 
-y &lt;- 42L
-z &lt;- &quot;42&quot;
-w &lt;- TRUE
-v &lt;- 3 + 2i
+fathers_occupation &lt;- c(1, 3, 3, 3, 1, 
+                        2, 3, 1, 1, 1,
+                        3, 2, 1, 3, 3, 
+                        1, 3, 1, 2, 1)
 
-typeof(x)</code></pre>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<pre class="r"><code>typeof(y)</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>typeof(z)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>typeof(w)</code></pre>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<pre class="r"><code>typeof(v)</code></pre>
-<pre><code>## [1] &quot;complex&quot;</code></pre>
-<p>#class</p>
-<pre class="r"><code>class(x)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(y)</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>class(z)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(w)</code></pre>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<pre class="r"><code>class(y)</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<p>#mode</p>
-<pre class="r"><code>mode(x)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>mode(y)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>mode(z)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>mode(w)</code></pre>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<pre class="r"><code>mode(v)</code></pre>
-<pre><code>## [1] &quot;complex&quot;</code></pre>
-<p>#Question 3</p>
-<pre class="r"><code>x &lt;- 42
-y &lt;- 42L
-# They are different because &quot;x &lt;- 42&quot; automatically makes it a double type. Meanwhile y &lt;- 42L reassigns the value to be integer.</code></pre>
-<p>#Question 4</p>
-<pre class="r"><code>#typeof()
-#class()
-#mode()
-# Each has different functions and to identify an object. For instance &quot;intege&quot; for typeof() and &quot;numeric for mode() and &quot;factor class().</code></pre>
-<p>#Part C</p>
-<pre class="r"><code>num_string&lt;- &quot;123&quot;
-as.numeric(num_string)</code></pre>
-<pre><code>## [1] 123</code></pre>
-<pre class="r"><code>as.logical(num_string)</code></pre>
-<pre><code>## [1] NA</code></pre>
-<pre class="r"><code>as.logical(0)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<pre class="r"><code>as.logical()</code></pre>
-<pre><code>## logical(0)</code></pre>
-<pre class="r"><code>bad_string &lt;- &quot;hello123&quot;</code></pre>
-<p>#Question 5</p>
-<pre class="r"><code># It issues a warning instead of crashing it because R allows data to process and to continue to run smoothly without encountering malformed values.
+persons_at_home &lt;- c(5, 7, 3, 8, 5,
+                     9, 6, 7, 8, 4,
+                     7, 5, 4, 7, 8, 
+                     8, 3, 11, 7, 6)
 
-# Ignoring these warnings can corrupt the value and caculations and results.</code></pre>
-<p>#Question 6</p>
-<pre class="r"><code># I think it will produce both TRUE value.
+siblings_at_school &lt;- c(6, 4, 4, 1, 2,
+                        1, 5, 3, 1, 2,
+                        3, 2, 5, 5, 2,
+                        1, 2, 5, 3, 2)
 
-as.logical(2)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>as.logical(-1)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code># R only reads 0 as a FALSE number anything above and under is TRUE. </code></pre>
-<p>#Part D</p>
-<pre class="r"><code>first_name &lt;- &quot;Juan&quot;
-last_name &lt;- &quot;Dela Cruz&quot;
-print(first_name)</code></pre>
-<pre><code>## [1] &quot;Juan&quot;</code></pre>
-<pre class="r"><code>print(last_name)</code></pre>
-<pre><code>## [1] &quot;Dela Cruz&quot;</code></pre>
-<pre class="r"><code>first_name &lt;- &quot;Juan&quot;
-last_name &lt;- &quot;Dela Cruz&quot;
-paste(first_name, last_name)</code></pre>
-<pre><code>## [1] &quot;Juan Dela Cruz&quot;</code></pre>
-<pre class="r"><code>paste0(first_name, last_name)</code></pre>
-<pre><code>## [1] &quot;JuanDela Cruz&quot;</code></pre>
-<pre class="r"><code>paste(first_name, last_name, sep = &quot;-&quot;)</code></pre>
-<pre><code>## [1] &quot;Juan-Dela Cruz&quot;</code></pre>
-<pre class="r"><code>full_name &lt;- paste0(first_name, last_name, sep = &quot;-&quot;)
-age &lt;- 21
-paste0(full_name, &quot;is&quot;, age, &quot;years old.&quot;)</code></pre>
-<pre><code>## [1] &quot;JuanDela Cruz-is21years old.&quot;</code></pre>
+types_of_houses &lt;- c(1, 2, 3, 1, 1,
+                     3, 3, 1, 2, 3,
+                     2, 3, 2, 2, 3,
+                     3, 3, 3, 3, 2)</code></pre>
+</div>
+<div id="a." class="section level1">
+<h1>A.</h1>
+<pre class="r"><code>length(respondents)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(sex)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(fathers_occupation)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(persons_at_home)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(siblings_at_school)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(types_of_houses)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>survey &lt;- data.frame(
+    Respondents = respondents,
+    Sex = sex,
+    FathersOccupation = fathers_occupation,
+    PersonsAtHome = persons_at_home,
+    SiblingsAtSchool = siblings_at_school,
+    TypesOfHouses = types_of_houses
+)
+survey</code></pre>
+<pre><code>##    Respondents Sex FathersOccupation PersonsAtHome SiblingsAtSchool
+## 1            1   2                 1             5                6
+## 2            2   2                 3             7                4
+## 3            3   1                 3             3                4
+## 4            4   2                 3             8                1
+## 5            5   2                 1             5                2
+## 6            6   2                 2             9                1
+## 7            7   2                 3             6                5
+## 8            8   2                 1             7                3
+## 9            9   2                 1             8                1
+## 10          10   2                 1             4                2
+## 11          11   1                 3             7                3
+## 12          12   2                 2             5                2
+## 13          13   2                 1             4                5
+## 14          14   2                 3             7                5
+## 15          15   2                 3             8                2
+## 16          16   2                 1             8                1
+## 17          17   2                 3             3                2
+## 18          18   2                 1            11                5
+## 19          19   1                 2             7                3
+## 20          20   1                 1             6                2
+##    TypesOfHouses
+## 1              1
+## 2              2
+## 3              3
+## 4              1
+## 5              1
+## 6              3
+## 7              3
+## 8              1
+## 9              2
+## 10             3
+## 11             2
+## 12             3
+## 13             2
+## 14             2
+## 15             3
+## 16             3
+## 17             3
+## 18             3
+## 19             3
+## 20             2</code></pre>
+</div>
+<div id="a.-1" class="section level1">
+<h1>A.</h1>
+<pre class="r"><code>str(survey)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    20 obs. of  6 variables:
+##  $ Respondents      : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Sex              : num  2 2 1 2 2 2 2 2 2 2 ...
+##  $ FathersOccupation: num  1 3 3 3 1 2 3 1 1 1 ...
+##  $ PersonsAtHome    : num  5 7 3 8 5 9 6 7 8 4 ...
+##  $ SiblingsAtSchool : num  6 4 4 1 2 1 5 3 1 2 ...
+##  $ TypesOfHouses    : num  1 2 3 1 1 3 3 1 2 3 ...</code></pre>
+<pre class="r"><code>sum(survey)</code></pre>
+<pre><code>## [1] 518</code></pre>
+</div>
+<div id="b." class="section level1">
+<h1>B.</h1>
+<pre class="r"><code>dim(survey)</code></pre>
+<pre><code>## [1] 20  6</code></pre>
+<pre class="r"><code>nrow(survey)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>ncol(survey)</code></pre>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="c." class="section level1">
+<h1>C.</h1>
+<pre class="r"><code>survey$Sex &lt;- factor(survey$Sex, levels = c(1, 2),
+                     labels = c(&quot;Male&quot;, &quot;Female&quot;))
+
+survey$FathersOccupation &lt;- factor(survey$FathersOccupation, levels = c(1, 2, 3),
+                                        labels = c(&quot;Farmer&quot;, &quot;Driver&quot;, &quot;Others&quot;))
+
+survey$TypesOfHouses &lt;- factor(survey$TypesOfHouses,       levels = c(1, 2, 3),
+                               labels = c(&quot;Wood&quot;, &quot;Semi-Concrete&quot;, &quot;Concrete&quot;))</code></pre>
+</div>
+<div id="d." class="section level1">
+<h1>D.</h1>
+<pre class="r"><code>sapply(lapply(survey, as.numeric), mean)</code></pre>
+<pre><code>##       Respondents               Sex FathersOccupation     PersonsAtHome 
+##             10.50              1.80              1.95              6.40 
+##  SiblingsAtSchool     TypesOfHouses 
+##              2.95              2.30</code></pre>
+</div>
+<div id="e." class="section level1">
+<h1>E.</h1>
+<pre class="r"><code>survey[1:5, ]</code></pre>
+<pre><code>##   Respondents    Sex FathersOccupation PersonsAtHome SiblingsAtSchool
+## 1           1 Female            Farmer             5                6
+## 2           2 Female            Others             7                4
+## 3           3   Male            Others             3                4
+## 4           4 Female            Others             8                1
+## 5           5 Female            Farmer             5                2
+##   TypesOfHouses
+## 1          Wood
+## 2 Semi-Concrete
+## 3      Concrete
+## 4          Wood
+## 5          Wood</code></pre>
+</div>
+<div id="f." class="section level1">
+<h1>F.</h1>
+<pre class="r"><code>types_houses &lt;- survey$TypesOfHouses
+types_houses</code></pre>
+<pre><code>##  [1] Wood          Semi-Concrete Concrete      Wood          Wood         
+##  [6] Concrete      Concrete      Wood          Semi-Concrete Concrete     
+## [11] Semi-Concrete Concrete      Semi-Concrete Semi-Concrete Concrete     
+## [16] Concrete      Concrete      Concrete      Concrete      Semi-Concrete
+## Levels: Wood Semi-Concrete Concrete</code></pre>
+</div>
+<div id="g." class="section level1">
+<h1>G.</h1>
+<pre class="r"><code>subset(survey, Sex == &quot;Male&quot; &amp; survey$FathersOccupation == &quot;Farmer&quot;)</code></pre>
+<pre><code>##    Respondents  Sex FathersOccupation PersonsAtHome SiblingsAtSchool
+## 20          20 Male            Farmer             6                2
+##    TypesOfHouses
+## 20 Semi-Concrete</code></pre>
+</div>
+<div id="h." class="section level1">
+<h1>H.</h1>
+<pre class="r"><code>subset(survey, Sex == &quot;Female&quot; &amp; SiblingsAtSchool &gt;= 5)</code></pre>
+<pre><code>##    Respondents    Sex FathersOccupation PersonsAtHome SiblingsAtSchool
+## 1            1 Female            Farmer             5                6
+## 7            7 Female            Others             6                5
+## 13          13 Female            Farmer             4                5
+## 14          14 Female            Others             7                5
+## 18          18 Female            Farmer            11                5
+##    TypesOfHouses
+## 1           Wood
+## 7       Concrete
+## 13 Semi-Concrete
+## 14 Semi-Concrete
+## 18      Concrete</code></pre>
+</div>
+<div id="question-2." class="section level1">
+<h1>Question 2.</h1>
+<p>#It is important to check the six variables, because this gives us
+insight on the vectors. If any of the vectors is shorter or longer than
+the rest, this can cause errors because alignment between respondents
+and their specific answers is destroyed.</p>
+</div>
+<div id="question-3." class="section level1">
+<h1>Question 3.</h1>
+<p>#If we treat categorical variable like sex as a quantity to average
+(M = 1, F = 2) this would calculate 1.8 and that doesn’t mean anything
+sex can’t be (1.8). Categorical variables should be reported using
+percentages or counting how many, while averages are only meaningful
+towards quanititative variables.</p>
+</div>
+<div id="question-4." class="section level1">
+<h1>Question 4.</h1>
+<p>#If someone checks the code and saw “Sex == 1” This would represent a
+lot of misleading meaning, This could represent a rank, measurement or a
+quantity rather than using the qualitative label “Male”. This highlights
+working with raw data, If somebody else works on your code this could
+confusion with the labels, misinterpretation and can perform invalid
+calculations with the data.</p>
+</div>
+<div id="question-5." class="section level1">
+<h1>Question 5.</h1>
+<pre class="r"><code>nrow(subset(survey, Sex == &quot;Male&quot;))</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>#Out of the 20 respondents, there are 4 Males. No, With only 20
+respondents in total, the sample is too small, and the results could
+easily be random chance rather than what is true for everyone else.</p>
+</div>
+<div id="question-6." class="section level1">
+<h1>Question 6.</h1>
+<pre class="r"><code>summary(survey)</code></pre>
+<pre><code>##   Respondents        Sex     FathersOccupation PersonsAtHome  SiblingsAtSchool
+##  Min.   : 1.00   Male  : 4   Farmer:9          Min.   : 3.0   Min.   :1.00    
+##  1st Qu.: 5.75   Female:16   Driver:3          1st Qu.: 5.0   1st Qu.:2.00    
+##  Median :10.50               Others:8          Median : 7.0   Median :2.50    
+##  Mean   :10.50                                 Mean   : 6.4   Mean   :2.95    
+##  3rd Qu.:15.25                                 3rd Qu.: 8.0   3rd Qu.:4.25    
+##  Max.   :20.00                                 Max.   :11.0   Max.   :6.00    
+##        TypesOfHouses
+##  Wood         : 4   
+##  Semi-Concrete: 6   
+##  Concrete     :10   
+##                     
+##                     
+## </code></pre>
+<p>#R calculated numeric statistics (like min and mean) for Sex and
+TypesOfHouses because they were entered as plain numbers (1, 2, 3). R
+only sees how data is stored, not what the data actually means.</p>
+</div>
+<div id="question-7." class="section level1">
+<h1>Question 7.</h1>
+<p>#PersonsAtHome mean = 6.35 is meaningful to report because it tells
+us the real average number of people living in a household. Meamwhile
+Sex mean = 1.8 is NOT meaningful to report because Sex is just a
+category. A person cannot be “1.8”.</p>
+</div>
 
 
 

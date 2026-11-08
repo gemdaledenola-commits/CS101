@@ -1,0 +1,135 @@
+---
+title: "RExercise#7_Denola"
+author: "Gem Dale G Deñola"
+date: "2026-11-08"
+output: html_document
+---
+
+Part A
+
+# Question 1
+
+```{r}
+respondents <- 1:20
+sex <- c(2, 2, 1, 2, 2, 
+         2, 2, 2, 2, 2,
+         1, 2, 2, 2, 2, 
+         2, 2, 2, 1, 1)
+
+fathers_occupation <- c(1, 3, 3, 3, 1, 
+                        2, 3, 1, 1, 1,
+                        3, 2, 1, 3, 3, 
+                        1, 3, 1, 2, 1)
+
+persons_at_home <- c(5, 7, 3, 8, 5,
+                     9, 6, 7, 8, 4,
+                     7, 5, 4, 7, 8, 
+                     8, 3, 11, 7, 6)
+
+siblings_at_school <- c(6, 4, 4, 1, 2,
+                        1, 5, 3, 1, 2,
+                        3, 2, 5, 5, 2,
+                        1, 2, 5, 3, 2)
+
+types_of_houses <- c(1, 2, 3, 1, 1,
+                     3, 3, 1, 2, 3,
+                     2, 3, 2, 2, 3,
+                     3, 3, 3, 3, 2)
+```
+
+# A.
+```{r}
+length(respondents)
+length(sex)
+length(fathers_occupation)
+length(persons_at_home)
+length(siblings_at_school)
+length(types_of_houses)
+```
+
+```{r}
+survey <- data.frame(
+    Respondents = respondents,
+    Sex = sex,
+    FathersOccupation = fathers_occupation,
+    PersonsAtHome = persons_at_home,
+    SiblingsAtSchool = siblings_at_school,
+    TypesOfHouses = types_of_houses
+)
+survey
+```
+
+# A.
+```{r}
+str(survey)
+sum(survey)
+```
+
+# B.
+```{r}
+dim(survey)
+nrow(survey)
+ncol(survey)
+```
+
+# C.
+```{r}
+survey$Sex <- factor(survey$Sex, levels = c(1, 2),
+                     labels = c("Male", "Female"))
+
+survey$FathersOccupation <- factor(survey$FathersOccupation, levels = c(1, 2, 3),
+                                        labels = c("Farmer", "Driver", "Others"))
+
+survey$TypesOfHouses <- factor(survey$TypesOfHouses,       levels = c(1, 2, 3),
+                               labels = c("Wood", "Semi-Concrete", "Concrete"))
+```
+
+# D.
+```{r}
+sapply(lapply(survey, as.numeric), mean)
+```
+
+# E.
+```{r}
+survey[1:5, ]
+```
+
+# F.
+```{r}
+types_houses <- survey$TypesOfHouses
+types_houses
+```
+
+# G.
+```{r}
+subset(survey, Sex == "Male" & survey$FathersOccupation == "Farmer")
+```
+
+# H. 
+```{r}
+subset(survey, Sex == "Female" & SiblingsAtSchool >= 5)
+```
+
+# Question 2.
+#It is important to check the six variables, because this gives us insight on the vectors. If any of the vectors is shorter or longer than the rest, this can cause errors because alignment between respondents and their specific answers is destroyed.
+
+# Question 3.
+#If we treat categorical variable like sex as a quantity to average (M = 1, F = 2) this would calculate 1.8 and that doesn't mean anything sex can't be (1.8). Categorical variables should be reported using percentages or counting how many, while averages are only meaningful towards quanititative variables.
+
+# Question 4.
+#If someone checks the code and saw "Sex == 1" This would represent a lot of misleading meaning, This could represent a rank, measurement or a quantity rather than using the qualitative label "Male". This highlights working with raw data, If somebody else works on your code this could confusion with the labels, misinterpretation and can perform invalid calculations with the data.
+
+# Question 5.
+```{r}
+nrow(subset(survey, Sex == "Male"))
+```
+#Out of the 20 respondents, there are 4 Males. No, With only 20 respondents in total, the sample is too small, and the results could easily be random chance rather than what is true for everyone else.
+
+# Question 6.
+```{r}
+summary(survey)
+```
+#R calculated numeric statistics (like min and mean) for Sex and TypesOfHouses because they were entered as plain numbers (1, 2, 3). R only sees how data is stored, not what the data actually means.
+
+# Question 7.
+#PersonsAtHome mean = 6.35 is meaningful to report because it tells us the real average number of people living in a household. Meamwhile Sex mean = 1.8 is NOT meaningful to report because Sex is just a category. A person cannot be "1.8".
