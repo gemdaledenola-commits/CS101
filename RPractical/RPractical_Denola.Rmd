@@ -3,8 +3,8 @@ title: "RPractical_Denola"
 author: "Gem Dale G Deñola"
 date: "2026-11-10"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 # Part A
